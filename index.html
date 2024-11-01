@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itothya General Agencies Ltd</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <style>
+        :root {
+            --primary-blue: #4682B4;
+            --accent-orange: #FFA500;
+            --text-dark: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        nav {
+            background-color: var(--primary-blue);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .page {
+            display: none;
+            padding: 6rem 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: var(--accent-orange);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e69500;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <img src="/api/placeholder/40/40" alt="Itothya Logo" style="margin-right: 1rem;">
+                Itothya General Agencies
+            </a>
+            <div class="nav-links">
+                <a href="#" onclick="showPage('home')">Home</a>
+                <a href="#" onclick="showPage('services')">Services</a>
+                <a href="#" onclick="showPage('contact')">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home" class="page active">
+        <div class="hero">
+            <h1>Welcome to Itothya General Agencies Ltd</h1>
+            <p>Utmost satisfaction of our clients is the supreme aim of our activity</p>
+        </div>
+        <div class="content">
+            <h2>About Us</h2>
+            <p>Established in 2005, we are a medium-size, indigenous, locally owned and managed company specializing in debt recovery and financial services.</p>
+            
+            <h2>Our Vision</h2>
+            <p>To be a leading service provider in debt collection and investigations - serving our clients to the highest standards in the country.</p>
+            
+            <h2>Our Values</h2>
+            <ul>
+                <li>Client Satisfaction</li>
+                <li>Professional Ethics</li>
+                <li>Innovation</li>
+                <li>Employee Development</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="services" class="page">
+        <h1>Our Services</h1>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Debt Recovery / Collection</h3>
+                <p>Specialized in commercial and consumer debt recovery with customized collection techniques.</p>
+            </div>
+            <div class="service-card">
+                <h3>Investigation / Skip Tracing</h3>
+                <p>Professional tracking services for debtors with lost contact, including legal notice serving.</p>
+            </div>
+            <div class="service-card">
+                <h3>Process Server</h3>
+                <p>Professional and time-effective court process services.</p>
+            </div>
+            <div class="service-card">
+                <h3>Debt Surveillance</h3>
+                <p>Monitoring and advisory services for debt management.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="page">
+        <h1>Contact Us</h1>
+        <div class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </div>
+        <div class="contact-info">
+            <h3>Location</h3>
+            <p>Pioneer House, 4th floor, Office Suite 407</p>
+            <p>Moi Avenue, Nairobi</p>
+            <p>Tel: +254 (020) 2211</p>
+            <p>Email: itothyagenciesltd@gmail.com</p>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
